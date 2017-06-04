@@ -1,27 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from '@/components/login'
-import Enroll from '@/components/resgister'
-import Res from '@/components/res'
+import config from './router'
 
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login
-    },
-    {
-      path: '/enroll',
-      name: 'enroll',
-      component: Enroll
-    },
-    {
-      path: '/re',
-      name: 're',
-      component: Res
-    }
-  ]
+  routes: config
 })

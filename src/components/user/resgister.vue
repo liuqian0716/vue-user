@@ -2,7 +2,7 @@
   <div class="hello">
     <section>
       <div class="login">
-        <div class="import"><span>手机号</span><input v-model="phone" type="text" placeholder="请输入手机号"><span>获取验证码</span></div>
+        <div class="import"><span>手机号</span><input v-model="phone" type="text" placeholder="请输入手机号"><span @click="authCode">{{clickBefore}}</span></div>
         <div class="import"><span>验证码</span><input v-model="password" type="text" placeholder="请输入验证码"></div>
         <div class="agree clear">
           <input class="fl" type="checkbox" /><p class="fl">阅读并同意<span>《别致公寓XX协议》</span></p>
@@ -26,7 +26,10 @@ export default {
   data () {
     return {
       phone: '',
-      password: ''
+      password: '',
+      time: 10,
+      clickBefore: '获取验证码',
+      clickAfter: '重新获取'
     }
   },
   methods: {
@@ -50,6 +53,20 @@ export default {
     },
     userLogin () {
       this.$router.push({path: '/login'})
+    },
+    authCode () {
+      var self = this
+      clearInterval(timer) // 怎么防止多次点击造成的开了好多个定时器
+      var timer = setInterval(function () {
+        self.time--
+        if (self.time > 1) {
+          self.clickBefore = '(' + self.time + ')重新获取'
+        } else {
+          self.clickBefore = '获取验证码'
+          clearInterval(timer)
+          self.time = 10
+        }
+      }, 1000)
     }
   }
 }
