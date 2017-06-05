@@ -1,6 +1,6 @@
 import Login from '@/components/user/login'
 import Enroll from '@/components/user/resgister'
-import Res from '@/components/user/res'
+import Success from '@/components/user/success'
 
 export default[
   {
@@ -14,8 +14,8 @@ export default[
     component: Enroll
   },
   {
-    path: '/re',
-    name: 're',
-    component: Res
+    path: '/success',
+    name: 'success',
+    component: Success
   }
 ]

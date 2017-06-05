@@ -9,7 +9,7 @@ export default {
   name: 'res',
   data () {
     return {
-      aa: 'liuqian'
+      name: 'liuqian'
     }
   }
 }
