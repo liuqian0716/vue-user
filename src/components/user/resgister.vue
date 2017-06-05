@@ -55,9 +55,10 @@ export default {
       this.$router.push({path: '/login'})
     },
     authCode () {
-      var self = this
-      clearInterval(timer) // 怎么防止多次点击造成的开了好多个定时器
+      let self = this
+      // clearInterval(timer) // 怎么防止多次点击造成的开了好多个定时器
       var timer = setInterval(function () {
+        clearInterval(timer)
         self.time--
         if (self.time > 1) {
           self.clickBefore = '(' + self.time + ')重新获取'

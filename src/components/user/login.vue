@@ -49,15 +49,22 @@ export default {
     return {
       phone: '',
       password: '',
+      clickBefore: '获取验证码',
       loginShow: true,
-      signShow: false
+      signShow: false,
+      signTel: '',
+      signCode: '',
+      signName: '',
+      signPass: '',
+      time: 10,
+      timer: ''
     }
   },
   methods: {
     login: function () {
       let self = this
       if (!this.phone || !this.password) {
-        alert('请填写完整！')
+        alert('是不是傻，填写完整啊！')
       } else {
         axios.post('wy_didi.dev.waywings.com/passager/user/login', {
           params: {
@@ -67,44 +74,50 @@ export default {
         }).then(function (response) {
           if (response.data.code === 0) {
             // 验证成功跳转页面
-            self.$router.push({path: '/re'})
+            self.$router.push({path: '/success'})
           }
         }, function (e) {
           // 验证失败跳转的
-          self.$router.push({path: '/res'})
+          self.$router.push({path: '/error'})
         })
       }
     },
     signBtn () {
       let self = this
-      axios.post('wy_didi.dev.waywings.com/passager/user/resgister', {
-        params: {
-          mobile: self.phone,
-          password: self.password
-        }
-      }).then(function (response) {
-        if (response.data.code === 0) {
-          // 验证成功跳转页面
-          self.$router.push({path: '/re'})
-        }
-      }, function (e) {
-        // 验证失败跳转的
-        self.$router.push({path: '/res'})
-      })
+      if (this.signTel && this.signCode && this.signName && this.signPass) {
+        axios.post('wy_didi.dev.waywings.com/passager/user/resgister', {
+          params: {
+            mobile: self.phone,
+            password: self.password
+          }
+        }).then(function (response) {
+          if (response.data.code === 0) {
+            // 验证成功跳转页面
+            self.$router.push({path: '/success'})
+          }
+        }, function (e) {
+          // 验证失败跳转的
+          self.$router.push({path: '/error'})
+        })
+      } else {
+        alert('填完整再提交啊')
+      }
     },
     authCode () {
-      var self = this
-      clearInterval(timer) // 怎么防止多次点击造成的开了好多个定时器
-      var timer = setInterval(function () {
-        self.time--
-        if (self.time > 1) {
-          self.clickBefore = '(' + self.time + ')重新获取'
-        } else {
-          self.clickBefore = '获取验证码'
-          clearInterval(timer)
-          self.time = 10
-        }
-      }, 1000)
+      let self = this
+      if (/^1[34578]\d{9}$/.test(this.signTel)) {
+        clearInterval(self.timer) // 声明成全局的，就解决了
+        self.timer = setInterval(function () {
+          self.time--
+          if (self.time > 1) {
+            self.clickBefore = '(' + self.time + ')重新获取'
+          } else {
+            self.clickBefore = '获取验证码'
+            clearInterval(self.timer)
+            self.time = 10
+          }
+        }, 1000)
+      }
     },
     resgister () {
       this.signShow = true

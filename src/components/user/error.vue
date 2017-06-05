@@ -1,14 +1,16 @@
 <template>
-	<div class="error">
-		<h1>失败！</h1>
+	<div>
+		<h1>成功登陆！</h1>
 	</div>
 </template>
+
 <script>
-	export default {
-		data () {
-			return {
-				msg: '失败'
-			}
-		}
-	}
-</script>
+export default {
+  name: 'res',
+  data () {
+    return {
+      name: 'liuqian'
+    }
+  }
+}
+</script> 

@@ -1,6 +1,7 @@
 import Login from '@/components/user/login'
 import Enroll from '@/components/user/resgister'
 import Success from '@/components/user/success'
+import malf from '@/components/user/error'
 
 export default[
   {
@@ -17,5 +18,10 @@ export default[
     path: '/success',
     name: 'success',
     component: Success
+  },
+  {
+    path: '/error',
+    name: 'error',
+    component: malf
   }
 ]
