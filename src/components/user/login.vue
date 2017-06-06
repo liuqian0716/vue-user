@@ -3,10 +3,10 @@
     <div class="loginWeb" v-show="loginShow">
       <section>
         <div class="login">
-          <div class="import"><span>手机号</span><input v-model="phone" type="text" placeholder="请输入手机号"></div>
-          <div class="import"><span>密码</span><input v-model="password" type="text" placeholder="请输入验证码"></div>
+          <div class="import"><span>手机号</span><input v-model="phone" type="text" placeholder="请输入手机号"><span></span></div>
+          <div class="import"><span>密码</span><input v-model="password" type="text" placeholder="请输入验证码"><span></span></div>
           <div class="agree clear">
-            <input class="fl" type="checkbox" /><p class="fl">阅读并同意<span>《别致公寓XX协议》</span></p>
+            <input class="fl" type="checkbox" v-model="checked" /><p class="fl">阅读并同意<span>《别致公寓XX协议》</span></p><span>{{checked}}</span>
           </div>
           <div class="register">
             <button @click="login">登录</button>
@@ -20,12 +20,12 @@
     <div class="signInWeb" v-show="signShow">
       <section>
         <div class="sign">
-          <div class="import"><span>手机号</span><input v-model="signTel" type="text" placeholder="请输入手机号"></div>
-          <div class="import"><span>验证码</span><input v-model="signCode" type="text" placeholder="请输入验证码"><span @click="authCode">{{clickBefore}}</span></div>
-          <div class="import"><span>昵称</span><input v-model="signName" type="text" placeholder="请输入昵称"></div>
-          <div class="import"><span>密码</span><input v-model="signPass" type="text" placeholder="请输入密码"></div>
+          <div class="import"><span>手机号</span><input v-model="signTel" @blur="checkTel" type="text" placeholder="请输入手机号"><span>{{telWarn}}</span></div>
+          <div class="import"><span>验证码</span><input v-model="signCode" type="text" placeholder="请输入验证码"><span @click="authCode">{{clickBefore}}</span><span>{{codeWarn}}</span></div>
+          <div class="import"><span>昵称</span><input v-model="signName" @blur="checkName" type="text" placeholder="请输入昵称"><span>{{nameWarn}}</span></div>
+          <div class="import"><span>密码</span><input v-model="signPass" @blur="checkPass" type="text" placeholder="请输入密码"><span></span></div>
           <div class="agree clear">
-            <input class="fl" type="checkbox" /><p class="fl">阅读并同意<span>《别致公寓XX协议》</span></p>
+            <input class="fl" type="checkbox" v-model="checked" /><p class="fl">阅读并同意<span>《别致公寓XX协议》</span></p><span class="fl">{{checked}}</span>
           </div>
           <div class="register">
             <button @click="signBtn">注册</button>
@@ -57,7 +57,11 @@ export default {
       signName: '',
       signPass: '',
       time: 10,
-      timer: ''
+      timer: '',
+      telWarn: '',
+      codeWarn: '',
+      nameWarn: '',
+      checked: ''
     }
   },
   methods: {
@@ -117,6 +121,27 @@ export default {
             self.time = 10
           }
         }, 1000)
+      }
+    },
+    checkTel () {
+      if (!/^1[34578]\d{9}$/.test(this.signTel)) {
+        this.telWarn = '请填写正确的手机号格式'
+      } else {
+        this.telWarn = ''
+      }
+    },
+    checkName () {
+      if (/.{3,}/.test(this.signName)) {
+        this.nameWarn = '至少三位'
+      } else {
+        this.nameWarn = ''
+      }
+    },
+    checkPass () {
+      if (!/^\d+&/.test(this.signPass) && /.{7,}/.test(this.signPass)) {
+        this.codeWarn = '必须为7位以上，并且不能为纯数字'
+      } else {
+        this.codeWarn = ''
       }
     },
     resgister () {
@@ -179,6 +204,7 @@ header img{width:6.25rem;height:6.25rem;}
  .import ::-ms-input-placeholder {/*IE*/
    color:#c9c9c9;
 }
+.import span:last-of-type{color:red;}
 .agree{line-height: 2.4rem;color:#7e7f7f;}
 .agree input{width:0.7rem;height:0.7rem;margin:0.85rem 0.3rem 0 0;}
 .agree span{color:#ffc95f;}
