@@ -20,10 +20,10 @@
     <div class="signInWeb" v-show="signShow">
       <section>
         <div class="sign">
-          <div class="import"><span>手机号</span><input v-model="signTel" type="text" placeholder="请输入手机号"></div>
-          <div class="import"><span>验证码</span><input v-model="signCode" type="text" placeholder="请输入验证码"><span @click="authCode">{{clickBefore}}</span></div>
-          <div class="import"><span>昵称</span><input v-model="signName" type="text" placeholder="请输入昵称"></div>
-          <div class="import"><span>密码</span><input v-model="signPass" type="text" placeholder="请输入密码"></div>
+          <div class="import"><span>手机号</span><input v-model="signTel" type="text" placeholder="请输入手机号"><span></span></div>
+          <div class="import"><span>验证码</span><input v-model="signCode" type="text" placeholder="请输入验证码"><span @click="authCode">{{clickBefore}}</span><span></span></div>
+          <div class="import"><span>昵称</span><input v-model="signName" type="text" placeholder="请输入昵称"><span></span></div>
+          <div class="import"><span>密码</span><input v-model="signPass" type="text" placeholder="请输入密码"><span></span></div>
           <div class="agree clear">
             <input class="fl" type="checkbox" /><p class="fl">阅读并同意<span>《别致公寓XX协议》</span></p>
           </div>
@@ -58,6 +58,15 @@ export default {
       signPass: '',
       time: 10,
       timer: ''
+    }
+  },
+  created () {
+    fn()
+    window.addEventListener('resize', fn)
+    function fn () {
+      var html = document.querySelector('html')
+      var wid = html.getBoundingClientRect().width
+      html.style.fontSize = wid / 37.5 + 'px'
     }
   },
   methods: {
@@ -179,6 +188,7 @@ header img{width:6.25rem;height:6.25rem;}
  .import ::-ms-input-placeholder {/*IE*/
    color:#c9c9c9;
 }
+.import span:last-of-type{color:red;}
 .agree{line-height: 2.4rem;color:#7e7f7f;}
 .agree input{width:0.7rem;height:0.7rem;margin:0.85rem 0.3rem 0 0;}
 .agree span{color:#ffc95f;}
