@@ -42,6 +42,9 @@
 
 <script>
 import axios from 'axios'
+import Api from './api'
+
+Vue.prototype.ajax = Api
 
 export default {
   name: 'hello',
@@ -89,39 +92,60 @@ export default {
       if (!this.phone || !this.password) {
         alert('是不是傻，填写完整啊！')
       } else {
-        axios.post('wy_didi.dev.waywings.com/passager/user/login', {
-          params: {
+        this.ajax.post('wy_didi.dev.waywings.com/passager/user/login',
+          {
             mobile: self.phone,
             password: self.password
+          },
+          function (data) {
+            if (data.code === 0) {
+              // 验证成功跳转页面
+              self.$router.push({path: '/success'})
+            }
           }
-        }).then(function (response) {
-          if (response.data.code === 0) {
-            // 验证成功跳转页面
-            self.$router.push({path: '/success'})
-          }
-        }, function (e) {
-          // 验证失败跳转的
-          self.$router.push({path: '/error'})
-        })
+        )
+        // axios.post('wy_didi.dev.waywings.com/passager/user/login', {
+        //   params: {
+        //     mobile: self.phone,
+        //     password: self.password
+        //   }
+        // }).then(function (response) {
+        //   if (response.data.code === 0) {
+        //     // 验证成功跳转页面
+        //     self.$router.push({path: '/success'})
+        //   }
+        // }, function (e) {
+        //   // 验证失败跳转的
+        //   self.$router.push({path: '/error'})
+        // })
       }
     },
     signBtn () {
       let self = this
       if (this.telWarn && this.signCode && this.nameWarn && this.codeWarn) {
-        axios.post('wy_didi.dev.waywings.com/passager/user/resgister', {
-          params: {
+        this.ajax.post('wy_didi.dev.waywings.com/passager/user/resgister',{
             mobile: self.phone,
             password: self.password
-          }
-        }).then(function (response) {
-          if (response.data.code === 0) {
-            // 验证成功跳转页面
-            self.$router.push({path: '/success'})
-          }
-        }, function (e) {
-          // 验证失败跳转的
-          self.$router.push({path: '/error'})
-        })
+          },data => {
+            if (data.code === 0) {
+              // 验证成功跳转页面
+              self.$router.push({path: '/success'})
+            }
+          })
+        // axios.post('wy_didi.dev.waywings.com/passager/user/resgister', {
+        //   params: {
+        //     mobile: self.phone,
+        //     password: self.password
+        //   }
+        // }).then(function (response) {
+        //   if (response.data.code === 0) {
+        //     // 验证成功跳转页面
+        //     self.$router.push({path: '/success'})
+        //   }
+        // }, function (e) {
+        //   // 验证失败跳转的
+        //   self.$router.push({path: '/error'})
+        // })
       } else {
         alert('填完整再提交啊')
       }
@@ -129,7 +153,7 @@ export default {
     authCode () {
       let self = this
       if (/^1[34578]\d{9}$/.test(this.signTel)) {
-        clearInterval(self.timer) // 声明成全局的，就解决了
+        // clearInterval(self.timer) // 声明成全局的，就解决了
         self.timer = setInterval(function () {
           self.time--
           if (self.time > 1) {
@@ -144,23 +168,23 @@ export default {
     },
     checkTel () {
       if (!/^1[34578]\d{9}$/.test(this.signTel)) {
-        this.telWarn = '请填写正确的手机号格式'
+        this.telWarn = true
       } else {
-        this.telWarn = ''
+        this.telWarn = false
       }
     },
     checkName () {
       if (/.{3,}/.test(this.signName)) {
-        this.nameWarn = '至少三位'
+        this.nameWarn = true
       } else {
-        this.nameWarn = ''
+        this.nameWarn = false
       }
     },
     checkPass () {
       if (!/^\d+&/.test(this.signPass) && /.{7,}/.test(this.signPass)) {
-        this.codeWarn = '必须为7位以上，并且不能为纯数字'
+        this.codeWarn = true
       } else {
-        this.codeWarn = ''
+        this.codeWarn = false
       }
     },
     resgister () {
