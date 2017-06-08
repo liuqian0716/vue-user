@@ -21,7 +21,7 @@
       <section>
         <div class="sign">
           <div class="import"><span>手机号</span><input v-model="signTel" @blur="checkTel" type="text" placeholder="请输入手机号"><span v-show="telWarn">请填写正确的手机号格式</span></div>
-          <div class="import"><span>验证码</span><input v-model="signCode" type="text" placeholder="请输入验证码"><span @click="authCode">{{clickBefore}}</span></div>
+          <div class="import"><span>验证码</span><input v-model="signCode" type="text" placeholder="请输入验证码"><span v-show="before" @click="authCode">{{clickBefore}}</span><span v-show="!before">{{clickAfter}}</span></div>
           <div class="import"><span>昵称</span><input v-model="signName" @blur="checkName" type="text" placeholder="请输入昵称"><span v-show="nameWarn">至少三位</span></div>
           <div class="import"><span>密码</span><input v-model="signPass" @blur="checkPass" type="text" placeholder="请输入密码"><span v-show="codeWarn">必须为7位以上，并且不能为纯数字</span></div>
           <div class="agree clear">
@@ -50,6 +50,7 @@ export default {
       phone: '',
       password: '',
       clickBefore: '获取验证码',
+      clickAfter: '',
       loginShow: true,
       signShow: false,
       signTel: '',
@@ -62,7 +63,8 @@ export default {
       codeWarn: false,
       nameWarn: false,
       checked: '',
-      isforbid: true
+      isforbid: true,
+      before: true
     }
   },
   created () {
@@ -151,16 +153,35 @@ export default {
       let self = this
       if (/^1[34578]\d{9}$/.test(this.signTel)) {
         // clearInterval(self.timer) // 声明成全局的，就解决了
+        self.clickAfter = '(' + self.time + ')重新获取'
+        self.before = false
         self.timer = setInterval(function () {
           self.time--
           if (self.time > 1) {
-            self.clickBefore = '(' + self.time + ')重新获取'
+            console.log('liuqian')
+            self.clickAfter = '(' + self.time + ')重新获取'
           } else {
             self.clickBefore = '获取验证码'
+            self.clickAfter = ''
+            self.before = true
             clearInterval(self.timer)
             self.time = 10
           }
         }, 1000)
+
+        // this.clickAfterValue = '(' + seconds + ')' + '重新获取'
+        // this.showClickButton = false
+        // let self = this
+        // let interval = setInterval(function () {
+        //   if (seconds > 1) {
+        //     seconds--
+        //     self.clickAfterValue = '(' + seconds + ')' + '重新获取'
+        //   } else {
+        //     clearInterval(interval)
+        //     self.showClickButton = true
+        //     self.clickBeforeValue = '重新获取'
+        //   }
+        // }, 1000)
       }
     },
     checkTel () {
