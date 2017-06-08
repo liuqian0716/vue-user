@@ -41,10 +41,7 @@
 </template>
 
 <script>
-import axios from 'axios'
-import Api from './api'
-
-Vue.prototype.ajax = Api
+// import axios from 'axios'
 
 export default {
   name: 'hello',
@@ -123,15 +120,15 @@ export default {
     signBtn () {
       let self = this
       if (this.telWarn && this.signCode && this.nameWarn && this.codeWarn) {
-        this.ajax.post('wy_didi.dev.waywings.com/passager/user/resgister',{
-            mobile: self.phone,
-            password: self.password
-          },data => {
-            if (data.code === 0) {
-              // 验证成功跳转页面
-              self.$router.push({path: '/success'})
-            }
-          })
+        this.ajax.post('wy_didi.dev.waywings.com/passager/user/resgister', {
+          mobile: self.phone,
+          password: self.password
+        }, data => {
+          if (data.code === 0) {
+            // 验证成功跳转页面
+            self.$router.push({path: '/success'})
+          }
+        })
         // axios.post('wy_didi.dev.waywings.com/passager/user/resgister', {
         //   params: {
         //     mobile: self.phone,
