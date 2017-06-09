@@ -1,13 +1,17 @@
 <template>
 	<div>
-		<h1>刘茜</h1>
-    <input type="text" />
+    <elInput></elInput>
 	</div>
 </template>
 
 <script>
+import elInput from './input'
+
 export default {
-  name: 'res',
+  components: {
+    elInput
+  },
+  name: 'child',
   data () {
     return {
       name: 'liuqian'
