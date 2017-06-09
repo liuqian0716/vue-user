@@ -8,6 +8,9 @@ import Api from './components/api'
 Vue.prototype.ajax = Api
 Vue.config.productionTip = false
 
+Vue.component('el-input', {
+  template: '<input type="text" />'
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

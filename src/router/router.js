@@ -1,6 +1,7 @@
 import Login from '@/components/user/login'
 import Success from '@/components/user/success'
 import malf from '@/components/user/error'
+import input from '@/components/user/input'
 
 export default[
   {
@@ -17,5 +18,10 @@ export default[
     path: '/error',
     name: 'error',
     component: malf
+  },
+  {
+    path: '/input',
+    name: 'input',
+    component: input
   }
 ]
