@@ -1,6 +1,6 @@
 <template>
 	<div>
-    <elInput></elInput>
+    <elInput>我是刘茜</elInput>
 	</div>
 </template>
 

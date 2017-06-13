@@ -1,7 +1,8 @@
 <template>
 	<div>
-		<h1>刘茜</h1>
-    <input type="text" />
+		<button>
+      <slot></slot>  
+    </button>
 	</div>
 </template>
 
