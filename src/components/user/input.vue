@@ -1,7 +1,7 @@
 <template>
 	<div
 		<div class="box">
-      <input type="text" /><img src="../../assets/img/search.png" alt="" />
+      <input type="text" /><slot name="green"></slot>
     </div>
 	</div>
 </template>
