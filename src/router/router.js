@@ -3,6 +3,7 @@ import Success from '@/components/user/success'
 import malf from '@/components/user/error'
 import input from '@/components/user/input'
 import Child from '@/components/user/child'
+import Test from '@/components/user/test'
 
 export default[
   {
@@ -26,8 +27,13 @@ export default[
     component: input
   },
   {
-    path: '/child',
+    path: '/child/:pay',
     name: 'child',
     component: Child
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: Test
   }
 ]

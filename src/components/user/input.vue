@@ -2,6 +2,8 @@
 	<div
 		<div class="box">
       <input type="text" /><slot name="green"></slot>
+      <p @click="add">我是子组件</p>
+      <h1>{{ccc}}</h1>
     </div>
 	</div>
 </template>
@@ -9,9 +11,19 @@
 <script>
 export default {
   name: 'res',
+  props: ['ccc'],
   data () {
     return {
-      name: 'liuqian'
+      name: 'liuqian',
+      default: '默认数据',
+      counter: 0
+    }
+  },
+  methods: {
+    add: function () {
+      // this.counter += 1
+      // console.log('接受父组件的值：', num, this.counter)
+      this.$emit('showbox', ++this.counter)
     }
   }
 }
