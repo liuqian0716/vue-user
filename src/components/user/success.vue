@@ -20,6 +20,7 @@ export default {
     }
   },
   created: function () {
+    var test = 'aa'
     this.$nextTick(function () {
       console.log('liuqian')
     })
