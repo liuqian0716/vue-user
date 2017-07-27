@@ -12,6 +12,7 @@
         <li v-for="(item, num) in addList" @click="addNew(item,num)">{{item}}</li>
       </ul>
     </div>
+    <h1>{{init}}</h1>
   </div>
 </template>
 <script>
@@ -31,6 +32,11 @@
         removeNew: function (obj, num) {
           this.removeList.splice(num, 1)
           this.addList.push(obj)
+        }
+      },
+      computed: {
+        init () {
+          return this.$store.state.count
         }
       }
     }

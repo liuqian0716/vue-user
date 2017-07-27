@@ -5,6 +5,7 @@ import input from '@/components/user/input'
 import Child from '@/components/user/child'
 import Test from '@/components/user/test'
 import Add from '@/components/test/add'
+import Select from '@/components/data/select'
 
 export default [{
   path: '/login',
@@ -40,5 +41,10 @@ export default [{
   path: '/add',
   name: 'add',
   component: Add
+},
+{
+  path: '/select',
+  name: 'select',
+  component: Select
 }
 ]

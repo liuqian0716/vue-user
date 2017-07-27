@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Api from './components/api'
+import store from './store'
 
 Vue.prototype.ajax = Api
 Vue.config.productionTip = false
@@ -12,6 +13,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })
