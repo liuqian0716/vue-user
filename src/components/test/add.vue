@@ -12,7 +12,9 @@
         <li v-for="(item, num) in addList" @click="addNew(item,num)">{{item}}</li>
       </ul>
     </div>
-    <h1>{{init}}</h1>
+
+    <h1>Vuex学习</h1>
+    <button @click="subItem">-</button><span>{{init}}</span><button @click="addItem">+</button>
   </div>
 </template>
 <script>
@@ -32,6 +34,17 @@
         removeNew: function (obj, num) {
           this.removeList.splice(num, 1)
           this.addList.push(obj)
+        },
+        addItem () {
+          this.$store.commit('add', {
+            n: 3
+          })
+        },
+        subItem () {
+          this.$store.commit({
+            type: 'sub',
+            de: 10
+          })
         }
       },
       computed: {
@@ -45,5 +58,6 @@
   *{margin:0;padding:0;}
   .clear:after{content: "";display:block;clear:both;}
   .afterAdd li,.afterRemove li{margin:15px 0 20px 10px;width:50px;height:50px;line-height:50px;float:left;list-style: none;text-align:center;border:1px solid #ccc;}
+  button{width:30px;height:30px;margin-left:20px;}
 </style>
 

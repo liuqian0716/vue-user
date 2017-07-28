@@ -2,11 +2,13 @@
   <div class="module">
     <select-input :is-show.sync="listShow" :title="title"></select-input>
     <list :data="listData" v-if="listShow" @changeTitle="titleHandle"></list>
+    <h1>{{count}}</h1><button @click="mo">+</button>
   </div>
 </template>
 <script>
   import selectInput from './selectInput'
   import list from './list'
+  import { mapState, mapMutations, mapGetters } from 'vuex'
   let listData = [
     {
       title: 'javascript'
@@ -37,11 +39,29 @@
       }
     },
     methods: {
+      ...mapMutations(['mo']),
       titleHandle (title) {
         console.log(title)
         this.title = title
       }
+      // addItem () {
+      //   this.$store.commit('add', {
+      //     n: 5
+      //   })
+      // }
+    },
+    computed: {
+      ...mapState(['count']),
+      ...mapGetters(['count'])
+      // 第二种写法
+      // count () {
+      //   return this.$store.getters.count
+      // }
     }
+    // 第二种方法
+    // computed: mapState({
+    //   count: state => state.count
+    // })
   }
 </script>
 <style>
