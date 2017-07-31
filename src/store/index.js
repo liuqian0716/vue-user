@@ -16,12 +16,23 @@ let store = new Vuex.Store({
     sub (state, payload) {
       state.count -= payload.de
     },
-    mo (state) {
-      state.count += 100
+    mo (state, n) {
+      state.count += n
+    },
+    reduce (state) {
+      state.count --
     }
   },
   getters: {
     count: state => (state.count += 50)
+  },
+  actions: {
+    addAction (context) {
+      context.commit('mo', 10)
+    },
+    reduceAction ({commit}) {
+      commit('reduce')
+    }
   }
 })
 
