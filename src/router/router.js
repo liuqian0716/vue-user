@@ -6,6 +6,7 @@ import Child from '@/components/user/child'
 import Test from '@/components/user/test'
 import Add from '@/components/test/add'
 import Select from '@/components/data/select'
+import Directive from '@/components/data/directive'
 
 export default [{
   path: '/login',
@@ -46,5 +47,10 @@ export default [{
   path: '/select',
   name: 'select',
   component: Select
+},
+{
+  path: '/directive',
+  name: 'directive',
+  component: Directive
 }
 ]

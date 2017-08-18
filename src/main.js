@@ -8,6 +8,7 @@ import store from './store'
 
 Vue.prototype.ajax = Api
 Vue.config.productionTip = false
+// Vue.http.defaults.withCredentials = true
 
 /* eslint-disable no-new */
 new Vue({
