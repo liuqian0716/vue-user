@@ -26,7 +26,7 @@ export default[
     component: input
   },
   {
-    path: '/child',
+    path: '/child/:pay',
     name: 'child',
     component: Child
   }
