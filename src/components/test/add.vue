@@ -21,6 +21,7 @@
       <input type="text" v-model="password">
       <h3></h3>
       <button @click="request">点击</button>
+      <h1>{{cc}}</h1>
     </div>
 
   </div>
@@ -28,7 +29,7 @@
 <script>
     import axios from 'axios'
     import jsonp from 'jsonp'
-    import ajax from '../../vue.js'
+    // import ajax from '../../vue.js'
     export default {
       name: 'add',
       data () {
@@ -37,7 +38,8 @@
           removeList: ['财经', '股票', '汽车', '数码'],
           phoneNumber: '逆流成河',
           password: '',
-          num: 5
+          num: 5,
+          cc: this.num
         }
       },
       methods: {
@@ -49,16 +51,8 @@
           //       })
         // 39.916527,116.397128
           // let data = { q: this.phoneNumber, count: this.num }
-          ajax.get('https://api.douban.com/v2/loc/list').then(function (response) {
+          axios.get('./data.json').then(function (response) {
             console.log(response)
-            if (response.data.code === 0) {
-              window.localStorage.setItem('base64', response.data.data.base64)
-              // 登录成功！
-              vue.$router.replace({path: '/'})
-            } else {
-              vue.warnMessage = true
-              vue.warn = '用户名与密码不匹配！'
-            }
           }, function (e) {
             console.error(e)
           })
