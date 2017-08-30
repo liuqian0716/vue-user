@@ -69,7 +69,7 @@
     }
   }
 </script>
-<style>
+<style scoped>
   *{margin:0;padding:0;}
   .module{width:300px;height:300px;background:#e3c5b1;margin:50px auto;}
 </style>

@@ -5,10 +5,12 @@ import App from './App'
 import router from './router'
 import Api from './components/api'
 import store from './store'
+import jquery from 'jquery'
 
 Vue.prototype.ajax = Api
 Vue.config.productionTip = false
 // Vue.http.defaults.withCredentials = true
+window.jquery = window.$ = jquery
 
 /* eslint-disable no-new */
 new Vue({
