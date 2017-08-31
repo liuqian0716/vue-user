@@ -51,7 +51,20 @@
           //       })
         // 39.916527,116.397128
           // let data = { q: this.phoneNumber, count: this.num }
+<<<<<<< HEAD
           axios.get('./../../../data.json').then(function (response) {
+=======
+          // ~../static/data.json ~代表src
+          // axios({
+          //   methods: 'post',
+          //   url: 'douban/v2/book/1220562',
+          //   data: {
+          //     name: 'wise',
+          //     info: 'wrong'
+          //   }
+          // })
+          axios.get('douban/v2/loc/list').then(function (response) {
+>>>>>>> 9f202440f8706c77eb30b21f75fd7e061c61969e
             console.log(response)
           }, function (e) {
             console.error(e)
@@ -77,6 +90,9 @@
           })
         }
       },
+      mounted () {
+        console.log($('.afterAdd'))
+      },
       computed: {
         init () {
           return this.$store.state.count
@@ -84,7 +100,7 @@
       }
     }
 </script>
-<style>
+<style scoped>
   *{margin:0;padding:0;}
   .clear:after{content: "";display:block;clear:both;}
   .afterAdd li,.afterRemove li{margin:15px 0 20px 10px;width:50px;height:50px;line-height:50px;float:left;list-style: none;text-align:center;border:1px solid #ccc;}

@@ -1,6 +1,5 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
-var proxy = require('http-proxy-middleware')
 
 module.exports = {
   build: {
@@ -28,12 +27,13 @@ module.exports = {
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+    // 跨域
     proxyTable: {
-      '/list': {
+      '/douban': {
         target: 'https://api.douban.com',
         changeOrigin: true,
         pathRewrite: {
-          '^/list': ''
+          '^/douban': ''
         }
       }
     },

@@ -27,8 +27,8 @@ export default {
     }
   }
 }
-</script> 
-<style>
+</script>
+<style scoped>
   *{margin:0;padding:0;}
   .box{position:relative;width:200px;height:30px;margin:0 auto;}
   .box input{width:200px;height:30px;}
