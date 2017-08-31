@@ -51,7 +51,7 @@
           //       })
         // 39.916527,116.397128
           // let data = { q: this.phoneNumber, count: this.num }
-          axios.get('./data.json').then(function (response) {
+          axios.get('./../../../data.json').then(function (response) {
             console.log(response)
           }, function (e) {
             console.error(e)
