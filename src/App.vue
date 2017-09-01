@@ -7,7 +7,16 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  // el: '#app',
+  data () {
+    return {
+      'aa': 'liu'
+    }
+  },
+  created () {
+    console.log('1')
+  }
 }
 </script>
 
@@ -18,4 +27,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
+/* .fade-left-enter-to {
+  transform: translateX(0)
+}
+.fade-left-leave{
+  transform: translateX(0)
+} */
+
 </style>

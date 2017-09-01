@@ -1,5 +1,5 @@
 <template>
-	<div
+	<div>
 		<div class="box">
       <input type="text" /><slot name="green"></slot>
       <p @click="add">我是子组件</p>

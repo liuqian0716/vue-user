@@ -16,7 +16,14 @@ export default [{
 {
   path: '/success',
   name: 'success',
-  component: Success
+  component: Success,
+  children: [{
+    path: 'page1',
+    component: Select
+  }, {
+    path: 'page2',
+    component: Login
+  }]
 },
 {
   path: '/error',
