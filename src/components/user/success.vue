@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade-right" mode="out-in">
+
     <div>
       <h1>成功登陆！</h1>
       <p>{{message}}</p>
@@ -7,9 +7,10 @@
       <button @click="btn">点击改变</button>
       <img :src="url" alt="">
       <p>我是刘茜</p>
-      <router-view></router-view>
+      <transition :name="transitionName">
+        <router-view></router-view>
+      </transition>
     </div>
-  </transition>
 </template>
 
 <script>
@@ -19,13 +20,14 @@ export default {
     return {
       name: 'liuqian',
       message: 'nextTick',
-      url: '/static/img/green.png'
+      url: '/static/img/green.png',
+      transitionName: 'fade-left'
     }
   },
   created: function () {
     var test = 'aa'
     this.$nextTick(function () {
-      console.log('liuqian')
+      // console.log('liuqian')
     })
   },
   methods: {
@@ -33,13 +35,16 @@ export default {
       this.$router.push({name: 'child', params: {pay: 'aaa'}}) // params的用法
     }
   },
-  beforeRouteEnter (to, from, next) {
-    console.log('ooo')
-    next()
-  },
   beforeRouteUpdate (to, from, next) {
-    console.log('2')
-    console.log(this.$route, to)
+    let isBack = this.$router.isBack
+    console.log(this.$router)
+    if (isBack) {
+      this.transitionName = 'fade-left'
+    } else {
+      this.transitionName = 'fade-right'
+    }
+    this.$router.isBack = false
+    next()
   }
 }
 </script>
@@ -48,11 +53,11 @@ export default {
 .fade-left-enter{
   transform: translateX(100%)
 }
-.fade-left-leave-to{
+.fade-left-enter-to{
   transform: translateX(-100%)
 }
 .fade-right-enter-active, .fade-right-leave-active{transition: 1s;}
-.fade-right-enter{
+.fade-right-leave{
   transform: translateX(-100%)
 }
 .fade-right-leave-to{
