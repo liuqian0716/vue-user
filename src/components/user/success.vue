@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 
     <div>
       <h1>成功登陆！</h1>
@@ -11,6 +12,23 @@
         <router-view></router-view>
       </transition>
     </div>
+=======
+	<div>
+		<h1>成功登陆！</h1>
+<<<<<<< HEAD
+		<button @click="btn">点击</button>
+    <ul>
+      <li v-for="item in items" :id="item.message"></li>
+    </ul>
+=======
+		<p>{{message}}</p>
+		<p>{{name}}</p>
+		<button @click="btn">点击改变</button>
+    <img :src="url" alt="">
+    <p @click="ge">我是刘茜</p>
+>>>>>>> e3aead92c453bbdedf98b60be5e5c5907e289747
+	</div>
+>>>>>>> d5afe01d87a0368dde7f3940ea07f01111f77cd6
 </template>
 
 <script>

@@ -18,6 +18,34 @@ import Work from '@/components/miaov-eg/work'
 import Hobby from '@/components/miaov-eg/hobby'
 import Study from '@/components/miaov-eg/study'
 
+<<<<<<< HEAD
+export default[
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/success',
+    name: 'success',
+    component: Success
+  },
+  {
+    path: '/error',
+    name: 'error',
+    component: malf
+  },
+  {
+    path: '/input',
+    name: 'input',
+    component: input
+  },
+  {
+    path: '/child/:pay',
+    name: 'child',
+    component: Child
+  }
+=======
 export default [{
   path: '/login',
   name: 'Login',
@@ -134,4 +162,5 @@ export default [{
     // return '/home'
   }
 }
+>>>>>>> e3aead92c453bbdedf98b60be5e5c5907e289747
 ]
