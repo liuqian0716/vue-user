@@ -51,9 +51,6 @@
           //       })
         // 39.916527,116.397128
           // let data = { q: this.phoneNumber, count: this.num }
-<<<<<<< HEAD
-          axios.get('./../../../data.json').then(function (response) {
-=======
           // ~../static/data.json ~代表src
           // axios({
           //   methods: 'post',
@@ -64,7 +61,6 @@
           //   }
           // })
           axios.get('douban/v2/loc/list').then(function (response) {
->>>>>>> 9f202440f8706c77eb30b21f75fd7e061c61969e
             console.log(response)
           }, function (e) {
             console.error(e)

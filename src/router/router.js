@@ -8,34 +8,6 @@ import Add from '@/components/test/add'
 import Select from '@/components/data/select'
 import Directive from '@/components/data/directive'
 
-<<<<<<< HEAD
-export default[
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login
-  },
-  {
-    path: '/success',
-    name: 'success',
-    component: Success
-  },
-  {
-    path: '/error',
-    name: 'error',
-    component: malf
-  },
-  {
-    path: '/input',
-    name: 'input',
-    component: input
-  },
-  {
-    path: '/child/:pay',
-    name: 'child',
-    component: Child
-  }
-=======
 export default [{
   path: '/login',
   name: 'Login',
@@ -81,5 +53,4 @@ export default [{
   name: 'directive',
   component: Directive
 }
->>>>>>> e3aead92c453bbdedf98b60be5e5c5907e289747
 ]
