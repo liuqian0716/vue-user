@@ -30,7 +30,7 @@ export default {
 </script>
 <style scoped>
   *{margin:0;padding:0;}
-  .box{position:relative;width:200px;height:30px;margin:0 auto;}
+  .box{width:400px;height:30px;margin:0 auto;}
   .box input{width:200px;height:30px;}
-  .box img{position:absolute;top:10px;right:0;width:20px;height:20px;vertical-align: center;}
+  .box img{width:20px;height:20px;vertical-align: center;}
 </style>

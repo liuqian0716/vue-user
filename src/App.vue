@@ -19,7 +19,7 @@
       <hr>
     </div>
 
-    <!-- <router-view name="slider"></router-view> -->
+    <router-view name="leftSli"></router-view>
 
     <router-view class="center"></router-view>
     <!-- <img src="./assets/logo.png"> -->

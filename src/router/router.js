@@ -17,6 +17,7 @@ import Document from '@/components/miaov-eg/document'
 import Work from '@/components/miaov-eg/work'
 import Hobby from '@/components/miaov-eg/hobby'
 import Study from '@/components/miaov-eg/study'
+import slide from '@/components/miaov-eg/slide'
 
 export default [{
   path: '/login',
@@ -97,7 +98,7 @@ export default [{
       name: 'about'
     },
     {
-      path: '/work',
+      path: '/work', // 加上/ 的意思是相对于根路径，不加的话就是相对于父
       name: 'work',
       component: Work
     },
@@ -111,7 +112,11 @@ export default [{
 {
   path: '/document',
   name: 'document',
-  component: Document
+  /* 命名视图 */
+  components: {
+    default: Document,
+    leftSli: slide
+  }
 },
 {
   path: '*',
