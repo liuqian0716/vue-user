@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="height: 2000px;">
     <div>关于我们</div>
     <ul class="nav">
       <router-link :to="{name:'about'}" exact tag="li">

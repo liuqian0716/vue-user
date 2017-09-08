@@ -24,6 +24,7 @@ export default {
     }
   },
   methods: {
+    /* 从success跳转过来的 */
     paras () {
       console.log(this.$route.params) // 获取params的参数
     },

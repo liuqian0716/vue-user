@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="height: 2000px;">
       <h1>成功登陆！</h1>
       <p>{{message}}</p>
       <p>{{name}}</p>
@@ -34,6 +34,7 @@ export default {
   },
   created: function () {
     var test = 'aa'
+    // console.log(this.$router)
     this.$nextTick(function () {
       // console.log('liuqian')
     })
