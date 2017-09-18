@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <li v-for="item in data" @click="getTitle(item.title)">{{item.title}}</li>
+    <li v-for="item in data" @click="getTitle(item.title)" :key="item">{{item.title}}</li>
   </ul>
 </template>
 <script>

@@ -7,7 +7,7 @@
           <span>home</span>
         </router-link>
         <li>
-          <router-link :to="{path:'/document#abc'}" event="mouseover" active-class="activeClass">document</router-link>
+          <router-link :to="{path:'/document'}" event="mouseover" active-class="activeClass">document</router-link>
         </li>
         <li>
           <router-link to="/about" event="mouseover">about</router-link>
@@ -19,7 +19,7 @@
       <hr>
     </div>
 
-    <!-- <router-view name="slider"></router-view> -->
+    <router-view name="leftSli"></router-view>
 
     <router-view class="center"></router-view>
     <!-- <img src="./assets/logo.png"> -->

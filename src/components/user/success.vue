@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="height: 2000px;">
       <h1>成功登陆！</h1>
       <p>{{message}}</p>
       <p>{{name}}</p>
@@ -17,7 +17,7 @@
         </ul>
       </div>
     </div>
-	
+
 </template>
 
 <script>
@@ -34,6 +34,7 @@ export default {
   },
   created: function () {
     var test = 'aa'
+    // console.log(this.$router)
     this.$nextTick(function () {
       // console.log('liuqian')
     })
@@ -55,7 +56,7 @@ export default {
     next()
   }
 }
-</script> 
+</script>
 <style scoped>
 .fade-enter-active {
   transition: all .3s ease;

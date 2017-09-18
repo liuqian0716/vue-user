@@ -1,10 +1,13 @@
 <template>
-  <transition name="fade">
     <div>
-      <el-Input><img slot="head" src="../../assets/img/search.png" alt="" /><img slot="green" src="../../assets/img/green.png" alt="" /><img slot="red" src="../../assets/img/green.png" alt="" /></el-Input>
-      <button @click="paras">点击获取参数</button>
+      <!-- .native - 监听组件根元素的原生事件。 -->
+      <el-Input @click.native="fn">
+        <img slot="head" src="../../assets/img/search.png" alt="" />
+        <img slot="green" src="../../assets/img/green.png" alt="" />
+        <img slot="red" src="../../assets/img/green.png" alt="" />
+      </el-Input>
+      <div @click="paras">点击获取参数</div>
     </div>
-  </transition>
 </template>
 
 <script>
@@ -21,8 +24,12 @@ export default {
     }
   },
   methods: {
+    /* 从success跳转过来的 */
     paras () {
       console.log(this.$route.params) // 获取params的参数
+    },
+    fn () {
+      console.log('woshi fn')
     }
   },
   beforeRouteUpdate (to, from, next) {
