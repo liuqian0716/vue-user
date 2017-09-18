@@ -3,13 +3,13 @@
     <div class="removeContent">
       <p>点击删除</p>
       <ul class="afterRemove clear">
-        <li v-for="(list, num) in removeList" @click="removeNew(list, num)">{{list}}</li>
+        <li v-for="(list, num) in removeList" @click="removeNew(list, num)" :key="list">{{list}}</li>
       </ul>
     </div>
     <div class="addContent">
       <p>点击添加</p>
       <ul class="afterAdd clear">
-        <li v-for="(item, num) in addList" @click="addNew(item,num)">{{item}}</li>
+        <li v-for="(item, num) in addList" @click="addNew(item,num)" :key="item">{{item}}</li>
       </ul>
     </div>
 

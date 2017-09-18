@@ -13,7 +13,7 @@
         <h1>成功登陆！</h1>
         <button @click="btn">点击</button>
         <ul>
-          <li v-for="item in items" :id="item.message">{{item.message}}</li>
+          <li v-for="item in items" :id="item.message" :key="item">{{item.message}}</li>
         </ul>
       </div>
     </div>
