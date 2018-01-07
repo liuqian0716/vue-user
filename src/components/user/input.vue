@@ -1,9 +1,11 @@
 <template>
 	<div>
 		<div class="box">
-      <input type="text" /><slot name="green"></slot>
+      <h2>我是input子组件</h2>
+      <input type="text" /><slot name="head"></slot>
       <p @click="add">我是子组件</p>
       <h1>{{ccc}}</h1>
+      <p>从父组件接收到的数据是： {{son}}</p>
     </div>
 	</div>
 </template>
@@ -11,13 +13,17 @@
 <script>
 export default {
   name: 'res',
-  props: ['ccc'],
+  // props: ['ccc', 'son'],
+  model: {props: 'son'},
   data () {
     return {
       name: 'liuqian',
       default: '默认数据',
       counter: 0
     }
+  },
+  created () {
+    console.log(this.$parent)
   },
   methods: {
     add: function () {

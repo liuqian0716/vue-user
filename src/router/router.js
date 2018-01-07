@@ -10,6 +10,7 @@ import Add from '@/components/test/add'
 import Select from '@/components/data/select'
 import Directive from '@/components/data/directive'
 import PageTransition from '@/components/user/PageTransition'
+import Review from '@/components/weibo/review'
 /* miaov例子 */
 import Home from '@/components/miaov-eg/home'
 import About from '@/components/miaov-eg/about'
@@ -19,11 +20,17 @@ import Hobby from '@/components/miaov-eg/hobby'
 import Study from '@/components/miaov-eg/study'
 import slide from '@/components/miaov-eg/slide'
 import User from '@/components/miaov-eg/user'
+import DirectiveOne from '@/components/directive/directive'
 
 export default [{
   path: '/login',
   name: 'Login',
   component: Login
+},
+{
+  path: '/directive',
+  name: 'directive',
+  component: DirectiveOne
 },
 {
   path: '/PageTransition',
@@ -80,6 +87,11 @@ export default [{
   path: '/directive',
   name: 'directive',
   component: Directive
+},
+{
+  path: '/review',
+  name: 'review',
+  component: Review
 },
 {
   path: '/',

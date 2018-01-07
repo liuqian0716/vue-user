@@ -2,18 +2,19 @@
   <div id="app">
     <div class="nav-box">
       <ul class="nav">
-        <router-link to="/" exact tag="li" event="mouseover">
+        <router-link to="/" exact tag="li">
           <i class="fa fa-home"></i>
           <span>home</span>
         </router-link>
         <li>
-          <router-link :to="{path:'/document'}" event="mouseover" active-class="activeClass">document</router-link>
+          <router-link :to="{path:'/document'}" active-class="activeClass">document</router-link>
         </li>
         <li>
-          <router-link to="/about" event="mouseover">about</router-link>
+          <router-link to="/about" >about</router-link>
         </li>
         <li>
-          <router-link to="/user" event="mouseover">user</router-link>
+          <!--event="mouseover"-->
+          <router-link to="/user">user</router-link>
         </li>
       </ul>
       <hr>

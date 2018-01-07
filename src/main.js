@@ -9,7 +9,7 @@ import jquery from 'jquery'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 /* 妙味课件学习 */
-import '@/assets/css/app'
+// import '@/assets/css/app'
 
 Vue.use(ElementUI)
 Vue.prototype.ajax = Api
